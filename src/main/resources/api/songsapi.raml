@@ -1,0 +1,180 @@
+#%RAML 1.0
+title: Songs api information
+description: By using this application we can get contatcts information
+
+baseUri: http://localhost:8081/api
+
+
+/contacts:
+  get:
+    description: By using this method we can collect all the contacts information
+    queryParameters:
+      name:
+        type: string
+        required: true
+        example: "afjkafj"
+      password:
+        type: string
+        required: true
+        example: "afjkafj"
+    responses:
+      200:
+        body:
+          application/json:
+            example:              
+              [
+                {
+                  "id": "afaf-a1f5af45-a5f4a5f",
+                  "firstname" : "N",                 
+                  "lastname" : "Sunil",
+                  "phoneno" : "9182232212",
+                  "company" : "Swhizz",		
+                  "email" : "nsunilmulesoftc2n@gmail.com"
+
+                },
+                {
+                  "id": "afaf-a1f5af45-a5f4a5f6",
+                  "firstname" : "k",                  
+                  "lastname" : "Nikitha",
+                  "phoneno" : "9182232213",
+                  "company" : "Capgemini",		
+                  "email" : "nikitha@gmail.com"
+
+                },
+                {
+                  "id": "afaf-a1f5af45-a5f4a5f7",
+                  "firstname" : "L",
+                  "lastname" : "Habib",
+                  "phoneno" : "9182232214",
+                  "company" : "Deloitte",		
+                  "email" : "Habib@gmail.com"
+
+                },
+                {
+                  "id": "afaf-a1f5af45-a5f4a5f8",
+                  "firstname" : "P",                  
+                  "lastname" : "Priyanka",
+                  "phoneno" : "9182232215",
+                  "company" : "Cognizant",		
+                  "email" : "priyanka@gmail.com"
+
+                }
+
+              ]
+      400:
+        body:
+          application/json:
+            example:
+              {
+                "statuscode" : 400,
+                "response" : "Badrequest"
+              }
+      500:
+        body:
+          application/json:
+            example:
+              {
+                "statuscode" : 500,
+                "response" : "Internal server error"
+              }
+  post:
+    body:
+      application/json:
+        example:
+          {
+            "firstname" : "P",                  
+            "lastname" : "Priyanka",
+            "phoneno" : "9182232215",
+            "company" : "Cognizant",		
+            "email" : "priyanka@gmail.com"
+          }
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {
+                "statuscode" : 201,
+                "response" : "Contact successfully added to list"
+              }
+      400:      
+        body:
+          application/json:
+            example:
+              {
+                "statuscode" : 400,
+                "response" : "Badrequest"
+              }
+      500:
+        body:
+          application/json:
+            example:
+              {
+                "statuscode" : 500,
+                "response" : "Internal server error"
+              }
+  /{id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {
+                  "id": "afaf-a1f5af45-a5f4a5f8",
+                  "firstname" : "P",                  
+                  "lastname" : "Priyanka",
+                  "phoneno" : "9182232215",
+                  "company" : "Cognizant",		
+                  "email" : "priyanka@gmail.com"
+
+                }
+        400:      
+          body:
+            application/json:
+              example:
+                {
+                  "statuscode" : 400,
+                  "response" : "Badrequest"
+                }
+        500:
+          body:
+            application/json:
+              example:
+                {
+                  "statuscode" : 500,
+                  "response" : "Internal server error"
+                }
+    delete:
+      responses:
+        404:
+          body:
+            application/json:
+              example:
+                {
+                  "statuscode" : 404,
+                  "response" : "data not found"
+                }
+        400:      
+          body:
+            application/json:
+              example:
+                {
+                  "statuscode" : 400,
+                  "response" : "Badrequest"
+                }
+        500:
+          body:
+            application/json:
+              example:
+                {
+                  "statuscode" : 500,
+                  "response" : "Internal server error"
+                }
+        
+      
+                
+      
+            
+          
+        
